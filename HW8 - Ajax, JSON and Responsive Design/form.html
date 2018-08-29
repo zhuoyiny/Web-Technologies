@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+
+    /*@media screen and (min-width: 600px) {
+        .card-columns {
+                -webkit-column-count: 4;
+                -moz-column-count: 4;
+                column-count:4;
+            }
+    }*/
+
+@media (min-width: 576px){
+        #card-columns{
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+            column-count: 1;
+        }
+    }
+    @media (min-width: 768px){
+        #card-columns{
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+        }
+    }
+    @media (min-width: 992px){
+        #card-columns{
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+        }
+    }
+    @media (min-width: 1200px){
+        #card-columns{
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+        }
+    }
+
+    #validate1 input.ng-dirty.ng-invalid, #validate1 input.ng-touched.ng-invalid{
+      border: solid 2px red;
+    }
+
+    #validate2 input.ng-dirty.ng-invalid, #validate2 input.ng-touched.ng-invalid{
+      border: solid 2px red;
+    }
+
+    .stars-outer {
+      display: inline-block;
+      position: relative;
+      font-family: FontAwesome;
+    }
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: orange;
+}
+
+
+    </style>
+
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js" type="text/javascript"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+
+
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbOgCGopbCyS-j1o95fBXGY8Oy0QnulAM&libraries=places"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Travel and Entertainment Search</title>
+    <script src="./angular.js"></script>
+</head>
+
+<body>
+
+
+
+        <div class="container" ng-model="myForm" ng-app="myApp" ng-controller="myctrl">
+
+            <div class="form-container">
+
+                <div class="card bg-light">
+
+                <div class="card-body">
+
+                <h2 class="text-center">Travel and Entertainment Search</h2>
+
+
+
+                <form id="myForm" name="myForm" ng-submit="submitForm()" novalidate >
+
+
+                    <div class="form-group row">
+                        <label for="keyword" class="col-sm-2 col-form-label">Keyword<span class="text-danger">*</span></label>
+                        <div class="col-sm-10" id="validate1">
+                            <input ng-model="keyword" type="text" ng-required="true" class="form-control" name="keyword" id="keyword" value=""></input>
+                            <span style="color:red" ng-show="myForm.keyword.$touched && myForm.keyword.$invalid" ng-cloak>
+                              Please enter a keyword
+                              </span>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="category" class="col-sm-2 col-form-label">Category</label>
+                        <div class="col-sm-10">
+                            <select ng-model="category" class="custom-select my-1 mr-sm-2" value="default" name="category" id="category">
+                                <option selected value="default">Default</option>
+                                <option value="airport">Airport</option>
+                                <option value="amusement park">Amusement Park</option>
+                                <option value="aquarium">Aquarium</option>
+                                <option value="art gallery">Art Gallery</option>
+                                <option value="bakery">Bakery</option>
+                                <option value="bar">Bar</option>
+                                <option value="beauty salon">Beauty Salon</option>
+                                <option value="bowling alley">Bowling Alley</option>
+                                <option value="bus station">Bus Station</option>
+                                <option value="cafe">Cafe</option>
+                                <option value="campground">Campground</option>
+                                <option value="car rental">Car Rental</option>
+                                <option value="casino">Casino</option>
+                                <option value="lodging">Lodging</option>
+                                <option value="movie theater">Movie Theater</option>
+                                <option value="museum">Museum</option>
+                                <option value="night club">Night Club</option>
+                                <option value="park">Park</option>
+                                <option value="parking">Parking</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="shopping mall">Shopping Mall</option>
+                                <option value="stadium">Stadium</option>
+                                <option value="subway station">Subway Station</option>
+                                <option value="taxi stand">Taxi Stand</option>
+                                <option value="train station">Train Station</option>
+                                <option value="transit station">Transit Station</option>
+                                <option value="travel agency">Travel Agency</option>
+                                <option value="zoo">Zoo</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="radius" class="col-sm-2 col-form-label">Distance(miles)</label>
+                        <div class="col-sm-10">
+                            <input ng-model="radius" type="text" class="form-control" value="" name="radius" id="radius" placeholder="10">
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">From<span class="text-danger">*</span></legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <!-- <select ng-model="currentfieldList" ng-options="sinfo for sinfo in fieldList" id="selectFieldName" ng-change="onRadioChange()" class="form-control"></select> -->
+                                    <input ng-model="radioValue" class="form-check-input" type="radio" ng-value="true" name="location" id="radio1" value="option1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Current location
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input ng-model="radioValue" ng-style="text === 'Please enter a location' && {'border': 'yellow 4px solid'}" class="form-check-input" type="radio" ng-value="false" name="location" id="radio2" ng-click="select($event)" value="option2">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Other. Please specify:
+                                      </label>
+                                    <div id="validate2">
+                                        <input ng-model="address" ng-init="text='Please enter a location'" value="" id="autocomplete" ng-required="true" ng-disabled="radioValue" onFocus="geolocate()" type="text" class="form-control" name="address" id="loc" placeholder="Enter a location">
+                                    <!-- <span style="color:red" ng-show="myForm.address.$touched && myForm.address.$invalid" ng-cloak>
+                                      Please enter a location
+                                      </span> -->
+                                      <p style="color:red" ng-show="!radioValue && myForm.address.$touched && myForm.address.$invalid" ng-cloak>
+                                          {{text}}
+                                      </p>
+                                      <!-- <input style="border: yellow 4px solid" /> -->
+                                  </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button ng-click="actions.submit()" ng-disabled="myForm.keyword.$dirty && myForm.keyword.$invalid" type="submit" id="submit" class="btn btn-primary"><i class="fa fa-search" ></i> Search</button>
+                            <button ng-click="clear()" type="reset" id="reset" class="btn btn-default" style="background-color:white; border:1px solid rgb(200,200,200)">Clear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+        </div>
+
+
+
+            <br />
+            <div class="text-center">
+                <button ng-click="" type="" id="" class="btn btn-primary">Results</button>
+                <button type="" id="" class="btn btn-default" style="background-color:white;color:rgb(0,123,255);">Favorites</button>
+            </div>
+
+            <br />
+            <div class="progress" id="progress_bar" ng-cloak>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;height:20px;"></div>
+            </div>
+
+        </div>
+
+
+    <div id="head_show"></div>
+    <div id="table1"></div>
+
+    <div class="text-center">
+        <p style="display: inline-block;">
+            <button id="pre" onclick="showPrevPage()" class="btn btn-default" style="background-color:white; border:1px solid rgb(200,200,200)">Previous</button>
+        </p>
+        <p style="display: inline-block;">
+            <button id="next" onclick="showNextPage()" class="btn btn-default" style="background-color:white; border:1px solid rgb(200,200,200)">Next</button>
+        </p>
+    </div>
+
+
+    <!-- <div id="info_table"></div> -->
+
+
+
+
+
+     <script>window.twttr = (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0],
+         t = window.twttr || {};
+       if (d.getElementById(id)) return t;
+       js = d.createElement(s);
+       js.id = id;
+       js.src = "https://platform.twitter.com/widgets.js";
+       fjs.parentNode.insertBefore(js, fjs);
+
+       t._e = [];
+       t.ready = function(f) {
+         t._e.push(f);
+       };
+
+       return t;
+     }(document, "script", "twitter-wjs"));</script>
+
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbOgCGopbCyS-j1o95fBXGY8Oy0QnulAM&libraries=places"></script>
+
+
+
+
+</body>
+
+</html>
+<script>
+    var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService;
+</script>

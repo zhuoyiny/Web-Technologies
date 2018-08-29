@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HW4_zhuoying</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function generateHTML(jsonObj) {
+            html_text = "<html><head><title>JSON Parse Result</title></head><body>";
+            html_text += "<table border='2'>";
+            html_text += "<tbody>";
+            html_text += "<tr>";
+            var truckingTable = jsonObj.Mainline.Table;
+            var truckingNodeList = truckingTable.Header.Data;
+            // output the headers
+            for (i = 0; i < truckingNodeList.length; i++) {
+                header = truckingNodeList[i];
+                html_text += "<th>" + header + "</th>";
+            }
+            html_text += "</tr>";
+            // output out the values
+            for (i = 0; i < jsonObj.Mainline.Table.Row.length; i++) //do for all planes (one per row)
+            {
+                var truckingNodeList = truckingTable.Row[i]; //get properties of a plane (an object)
+                html_text += "<tr>"; //start a new row of the output table
+                var trucking_keys = Object.keys(truckingNodeList);
+
+                for (j = 0; j < trucking_keys.length; j++) {
+                    prop = trucking_keys[j];
+                    if (String.trim(truckingNodeList[prop]) == "") {
+                        html_text += "<td></td>";
+                    } else if (j == 2) {
+                        html_text += "<td><ul>";
+                        for (k = 0; k < Object.keys(truckingTable.Row[i].Hubs).length; k++) {
+                            prop_hub = Object.keys(truckingTable.Row[i].Hubs)[k];
+                            hub_value = Object.values(truckingTable.Row[i].Hubs)[k];
+                            for (m = 0; m < hub_value.length; m++) {
+                                if (m == 0) {
+                                    html_text += "<li><b>" + truckingTable.Row[i].Hubs[prop_hub][m] + "</b></li>";
+                                } else {
+                                    html_text += "<li>" + truckingTable.Row[i].Hubs[prop_hub][m] + "</li>";
+                                }
+                            }
+                            if (k < Object.keys(truckingTable.Row[i].Hubs).length - 1) {
+                                html_text += "<br />";
+                            }
+                        }
+                        html_text += "</ul></td>";
+                    } else if (j == 4) {
+                        html_text += "<td><a href=" + truckingNodeList[prop] + "/>" + truckingNodeList[prop] + "</td>";
+                    } else if (j == 5) { //handle images separately
+                        html_text += "<td><img src=" + truckingNodeList[prop] + " width=400 height= 250/></td>";
+                    } else {
+                        html_text += "<td>" + truckingNodeList[prop] + "</td>";
+                    }
+                }
+                html_text += "</tr>";
+            }
+            html_text += "</tbody>";
+            html_text += "</table>";
+            html_text += "</body></html>";
+        }
+
+
+        function viewJSON(what) {
+            var URL = what.URL.value;
+
+            function loadJSON(URL) {
+                if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.overrideMimeType("application/json");
+                } else { // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.open("GET", URL, false); // "synchronous"
+                try {
+                    xmlhttp.send();
+                } catch (e) {
+                    window.alert("The JSON file does not exist!");
+                }
+
+                if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.staus == 0)) {
+                    try {
+                        jsonObj = JSON.parse(xmlhttp.responseText);
+                    } catch (e) {
+                        alert("Please enter a JSON file!");
+                        return;
+                    }
+                    if (!JSON.parse(xmlhttp.responseText).hasOwnProperty('Mainline')){
+                        alert("Empty JSON file!");
+                        return;
+                    }
+                    if (!jsonObj.Mainline.Table.hasOwnProperty('Row')) {
+                        alert("No trucking companies!");
+                        return;
+                    }
+                    return jsonObj;
+                }
+                else {
+                    window.alert("The JSON file does not exist!");
+                }
+            }
+
+            jsonObj = loadJSON(URL);
+            if (window.ActiveXObject) //if IE, simply execute script (due to async prop).
+            {
+                if (jsonObj.parseError.errorCode != 0) {
+                    var myErr = jsonObj.parseError;
+                    generateError(jsonObj);
+                    hWin = window.open("", "Error", "height=300,width=340");
+                    hWin.document.write(html_text);
+                } else {
+                    generateHTML(jsonObj);
+                    hWin = window.open("", "Assignment4", "height=800,width=600");
+                    hWin.document.write(html_text);
+                }
+            } else //else if FF, execute script once JSON object has loaded
+            {
+                jsonObj.onload = generateHTML(jsonObj);
+                var hWin = window.open("", "Assignment4", "height=1000,width=1250");
+                hWin.document.write(html_text);
+            }
+            hWin.document.close();
+        }
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <h2>Enter URL for Trucking List JSON File</h2>
+        <form name="myform" method="POST" id="location">
+            <input type="text" name="URL" maxlength="255" size="100" />
+            <br/><br/>
+            <input type="button" name="submit" value="Submit Query" onClick="viewJSON(this.form)" />
+        </form>
+        <noscript>
+    </div>
+</body>
+
+</html>

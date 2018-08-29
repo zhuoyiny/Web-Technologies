@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Places Search</string>
+    <string name="place_details">Search Results</string>
+    <string name="tab_text_Home_1">SEARCH</string>
+    <string name="tab_text_Home_2">FAVORITES</string>
+    <string name="keyword">keyword</string>
+    <string-array name="category">
+        <item>Default</item>
+        <item>Airport</item>
+        <item>Amusement Park</item>
+        <item>aquarium</item>
+        <item>art gallery</item>
+        <item>bakery</item>
+        <item>bar</item>
+        <item>beauty salon</item>
+        <item>bowling alley</item>
+        <item>bus station</item>
+        <item>cafe</item>
+        <item>campground</item>
+        <item>car rental</item>
+        <item>casino</item>
+        <item>lodging</item>
+        <item>movie theater</item>
+        <item>museum</item>
+        <item>night club</item>
+        <item>park</item>
+        <item>parking</item>
+        <item>Restaurant</item>
+        <item>shopping mall</item>
+        <item>stadium</item>
+        <item>subway station</item>
+        <item>taxi stand</item>
+        <item>train station</item>
+        <item>transit station</item>
+        <item>travel agency</item>
+        <item>zoo</item>
+    </string-array>
+    <!--<string name="tab_text_3">Tab 3</string>-->
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="tab_text_1">INFO</string>
+    <string name="tab_text_2">PHOTOS</string>
+    <string name="tab_text_3">MAP</string>
+    <string name="tab_text_4">REVIEWS</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="modespinner">
+        <item>Driving</item>
+        <item>Bicycling</item>
+        <item>Transit</item>
+        <item>Walking</item>
+    </string-array>
+    <string-array name = "review_array">
+        <item>Google reviews</item>
+        <item>Yelp reviews</item>
+    </string-array>
+    <string-array name = "sequence_array">
+        <item>Default Order</item>
+        <item>Highest Rating</item>
+        <item>Lowest Rating</item>
+        <item>Most Recent</item>
+        <item>Least Recent</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
