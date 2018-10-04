@@ -1,10 +1,7 @@
 # Web Technologies
 
-
 My Link: **http://www-scf.usc.edu/~zhuoyiny/1O9fd63m7.html**
 (Only 3,4,6,8 are valid links, other homeworks are configurations, HW9 is an Android app which can't be shown on website)
-
-###### Course Description
 
 The links below are Reference Solution Videos
 
@@ -15,6 +12,7 @@ The links below are Reference Solution Videos
 - HW8: Ajax, JSON and Responsive Design(Node.js, Google, Yelp, Twitter API, Angularjs, Bootstrap, AWS) https://www.youtube.com/watch?v=5OTM7qBMxfM
 - HW9: Place Search Android App https://youtu.be/jhmInPC0m4M
 
+## Course Description
 This course focuses on the phenomenon known as the World Wide Web (WWW or Web). Its focus is to present many of the core technologies that the Web is based upon. These core technologies include:
 
 - HTML and CSS (Hypertext MarkUp Language and Cascading Style Sheets)
