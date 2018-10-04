@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 if(isset($_GET["key"])){
     $data_arr1 = array();
@@ -584,9 +584,9 @@ if(isset($_POST["keyword"])){
 
         buttonShow = function(){
             var reviews = "click to show reviews";
-            var arrow1 = '<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30 >';
+            var arrow1 = '<img src="arrow_down.png" height=20 width=30 >';
             var photos = "click to show photos";
-            var arrow2 = '<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30>';
+            var arrow2 = '<img src="arrow_down.png" height=20 width=30>';
             document.getElementById("show_reviews").innerHTML=reviews;
             document.getElementById("arrow1_show").innerHTML=arrow1;
             document.getElementById("show_photos").innerHTML=photos;
@@ -599,15 +599,15 @@ if(isset($_POST["keyword"])){
 
         document.getElementById("btn1").addEventListener("click",function(event){
             if (document.getElementById("show_reviews").innerHTML=="click to show reviews") {
-                document.getElementById("arrow1_show").innerHTML='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_up.png" height=20 width=30 >';
+                document.getElementById("arrow1_show").innerHTML='<img src="arrow_up.png" height=20 width=30 >';
                 document.getElementById("show_reviews").innerHTML = "click to hide reviews";
                 document.getElementById("reviewTable").style.display = "block";
                 document.getElementById("imageTable").style.display = "none";
-                document.getElementById("arrow2_show").innerHTML ='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30 >';
+                document.getElementById("arrow2_show").innerHTML ='<img src="arrow_down.png" height=20 width=30 >';
                 document.getElementById("show_photos").innerHTML ="click to show photos";
             }
             else {
-                document.getElementById("arrow1_show").innerHTML ='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30 >';
+                document.getElementById("arrow1_show").innerHTML ='<img src="arrow_down.png" height=20 width=30 >';
                 document.getElementById("show_reviews").innerHTML ="click to show reviews";
                 document.getElementById("reviewTable").style.display = "none";
             }
@@ -615,15 +615,15 @@ if(isset($_POST["keyword"])){
 
         document.getElementById("btn2").addEventListener("click",function(event){
             if (document.getElementById("show_photos").innerHTML=="click to show photos") {
-                document.getElementById("arrow2_show").innerHTML='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_up.png" height=20 width=30 >';
+                document.getElementById("arrow2_show").innerHTML='<img src="arrow_up.png" height=20 width=30 >';
                 document.getElementById("show_photos").innerHTML = "click to hide photos";
                 document.getElementById("imageTable").style.display = "block";
                 document.getElementById("reviewTable").style.display = "none";
-                document.getElementById("arrow1_show").innerHTML ='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30 >';
+                document.getElementById("arrow1_show").innerHTML ='<img src="arrow_down.png" height=20 width=30 >';
                 document.getElementById("show_reviews").innerHTML ="click to show reviews";
             }
             else {
-                document.getElementById("arrow2_show").innerHTML ='<img src="http://cs-server.usc.edu:45678/hw/hw6/images/arrow_down.png" height=20 width=30 >';
+                document.getElementById("arrow2_show").innerHTML ='<img src="arrow_down.png" height=20 width=30 >';
                 document.getElementById("show_photos").innerHTML ="click to show photos";
                 document.getElementById("imageTable").style.display = "none";
             }

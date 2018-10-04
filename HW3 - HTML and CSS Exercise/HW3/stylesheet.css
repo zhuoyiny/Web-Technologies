@@ -58,7 +58,7 @@ h1 {
 }
 
 .fixed1{
-    background-image:url(http://cs-server.usc.edu:45678/hw/hw3/images/image6.jpg);
+    background-image:url(image6.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: -372px 50px;
@@ -68,7 +68,7 @@ h1 {
 }
 
 .fixed2 {
-    background-image:url(http://cs-server.usc.edu:45678/hw/hw3/images/image5.jpg);
+    background-image:url(image5.jpg);
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -161,7 +161,7 @@ h1 {
 }
 
 #part2{
-    background: url(http://cs-server.usc.edu:45678/hw/hw3/images/image7.jpg) no-repeat center top;;
+    background: url(image7.jpg) no-repeat center top;;
 }
 
 .z2 {
